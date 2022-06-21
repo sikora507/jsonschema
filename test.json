@@ -1,0 +1,55 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Test",
+        "version": "1.0.0"
+    },
+    "components": {
+        "schemas": {
+            "Link": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "friendlyName": {
+                        "type": "string"
+                    },
+                    "url": {
+                        "type": "string",
+                        "format": "uri"
+                    }
+                }
+            },
+            "Pagination": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "next": {
+                        "$ref": "#/components/schemas/Link"
+                    },
+                    "previous": {
+                        "$ref": "#/components/schemas/Link"
+                    },
+                    "pages": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }
+            },
+            "Page": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "content": {
+                        "type": "string"
+                    },
+                    "links": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Link"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
